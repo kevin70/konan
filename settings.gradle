@@ -1,0 +1,4 @@
+rootProject.name = 'konan'
+include 'konan-core'
+include 'konan-ui'
+include 'konan-server'

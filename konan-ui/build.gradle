@@ -1,0 +1,13 @@
+project(':konan-ui') {
+
+  apply plugin: 'com.moowork.node'
+
+  project.buildDir = 'dist'
+
+  task buildUI(type: NpmTask) {
+    args = ['run', 'build']
+  }
+
+  jar.dependsOn buildUI
+
+}
