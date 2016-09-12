@@ -5,9 +5,8 @@
   "author": "kevin <kevinz@weghst.com>",
   "private": true,
   "scripts": {
-    "dev": "node build/dev-server.js",
-    "build": "node build/build.js",
-    "test": ""
+    "dev": "node b/dev-server.js",
+    "build": "node b/build.js"
   },
   "dependencies": {
     "vue": "^1.0.21"
