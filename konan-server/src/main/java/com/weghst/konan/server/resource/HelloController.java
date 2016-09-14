@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  * @author Kevin Zou (yong.zou@pilibaba.com)
  */
-@RequestMapping("/api")
 @RestController
 @RefreshScope
 public class HelloController {

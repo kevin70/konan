@@ -3,3 +3,5 @@ spring:
     name: konan
 config:
   name: konan
+server:
+  servlet-path: /api/*

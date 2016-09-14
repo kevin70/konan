@@ -1,3 +1,62 @@
 project(':konan-core') {
 
+    sourceSets {
+        main {
+            proto {
+                srcDir 'src/main/protobuf'
+            }
+            resources {
+                srcDir 'src/main/protobuf'
+            }
+        }
+    }
+
+    protobuf {
+        generatedFilesBaseDir = 'generated'
+        protoc {
+            // The artifact spec for the Protobuf Compiler
+            artifact = 'com.google.protobuf:protoc:3.0.0'
+        }
+        plugins {
+            // Optional: an artifact spec for a protoc plugin, with "grpc" as
+            // the identifier, which can be referred to in the "plugins"
+            // container of the "generateProtoTasks" closure.
+            grpc {
+                artifact = 'io.grpc:protoc-gen-grpc-java:1.0.0'
+            }
+        }
+        generateProtoTasks {
+            ofSourceSet('main')*.plugins {
+                // Apply the "grpc" plugin whose spec is defined above, without
+                // options.  Note the braces cannot be omitted, otherwise the
+                // plugin will not be added. This is because of the implicit way
+                // NamedDomainObjectContainer binds the methods.
+                grpc {}
+            }
+        }
+    }
+
+    idea {
+        module {
+            sourceDirs += file("${protobuf.generatedFilesBaseDir}/main/java");
+            sourceDirs += file("${protobuf.generatedFilesBaseDir}/main/grpc");
+        }
+    }
+
+    dependencies {
+        compileOnly 'org.projectlombok:lombok:1.16.10'
+
+        compile('org.springframework.boot:spring-boot-starter:1.4.0.RELEASE') {
+            exclude group: 'commons-logging', module: 'commons-logging'
+        }
+        compile 'org.springframework.cloud:spring-cloud-context:1.1.1.RELEASE'
+        compile 'io.grpc:grpc-protobuf:1.0.0'
+        compile 'io.grpc:grpc-stub:1.0.0'
+        compile('io.grpc:grpc-netty:1.0.0') {
+            exclude group: 'io.netty', module: 'netty-codec-http'
+        }
+
+        compile 'com.fasterxml.jackson.core:jackson-databind:2.8.2'
+    }
+
 }

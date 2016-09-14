@@ -1,0 +1,58 @@
+syntax = "proto3";
+
+package weghst.konan;
+
+import "google/protobuf/empty.proto";
+
+option java_package = "com.weghst.konan.span";
+option java_multiple_files = true;
+
+message Span {
+    int64 trace_id = 1;
+    string name = 2;
+    int64 id = 3;
+    int64 parent_id = 4;
+    int64 timestamp = 5;
+    int64 duration = 6;
+    repeated Annotation annotations = 7;
+    repeated Remark remarks = 8;
+}
+
+message Annotation {
+    int64 timestamp = 1;
+    string value = 2;
+    Endpoint endpoint = 3;
+}
+
+message Remark {
+    string key = 1;
+    string value = 2;
+    Endpoint endpoint = 3;
+}
+
+message Endpoint {
+    string service_name = 1;
+    int64 ipv4 = 2;
+    bytes ipv6 = 3;
+    int32 port = 4;
+}
+
+// enum AnnotationType {
+//     CLIENT_SEND = 0;
+//     SERVER_SEND = 1;
+//     SERVER_RECV = 2;
+//     WIRE_SEND = 3;
+//     CLIENT_SEND_FRAGMENT = 4;
+//     CLIENT_RECV_FRAGMENT = 5;
+//     SERVER_SEND_FRAGMENT = 6;
+//     SERVER_RECV_FRAGMENT = 7;
+//     LOCAL_COMPONENT = 8;
+//     ERROR = 9 ;
+//     CLIENT_ADDR = 10;
+//     SERVER_ADDR = 11;
+// }
+
+service SpanCollector {
+    rpc SayHello (Span) returns (google.protobuf.Empty) {
+    }
+}
