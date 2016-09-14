@@ -7,6 +7,10 @@ import "google/protobuf/empty.proto";
 option java_package = "com.weghst.konan.span";
 option java_multiple_files = true;
 
+message Spans {
+    repeated Span spans = 1;
+}
+
 message Span {
     int64 trace_id = 1;
     string name = 2;
@@ -53,6 +57,9 @@ message Endpoint {
 // }
 
 service SpanCollector {
-    rpc SayHello (Span) returns (google.protobuf.Empty) {
+    rpc submit(Span) returns(google.protobuf.Empty) {
+    }
+
+    rpc submitBatch(Spans) returns(google.protobuf.Empty) {
     }
 }
