@@ -1,0 +1,7 @@
+spring:
+  cloud:
+    consul:
+      config:
+        format: yaml
+        watch:
+          delay: 10000

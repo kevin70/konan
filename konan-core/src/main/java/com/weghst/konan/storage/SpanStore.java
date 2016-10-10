@@ -1,7 +1,9 @@
 package com.weghst.konan.storage;
 
+import java.util.Collection;
 import java.util.List;
 
+import com.weghst.konan.span.Span;
 import com.weghst.konan.span.Spans;
 
 /**
@@ -10,10 +12,15 @@ import com.weghst.konan.span.Spans;
 public interface SpanStore {
 
     /**
+     * @param span
+     */
+    void collect(Span span);
+
+    /**
      * @param spans
      * @return
      */
-    void submit(Spans spans);
+    void collect(Spans spans);
 
     /**
      * @param request
@@ -21,9 +28,9 @@ public interface SpanStore {
      */
     List<Spans> queryTraces(QueryRequest request);
 
-    Spans getTrace(long id);
+    Collection<Span> getTrace(long traceId);
 
-    Spans getRawTrace(long traceId);
+    Collection<Span> getRawTrace(long traceId);
 
     List<String> getServiceNames();
 }

@@ -16,12 +16,10 @@ package com.weghst.konan.internal;
 
 import java.util.Objects;
 
-import org.springframework.util.ObjectUtils;
-
 /**
  * Aids in converging streams which have 2-tuples, such as start/endTs and parent/spanId
  */
-public final class Pair<T> implements Comparable<Pair<T>> {
+public final class Pair<T> {
 
     public static <T> Pair<T> create(T _1, T _2) {
         return new Pair<T>(_1, _2);
@@ -60,10 +58,5 @@ public final class Pair<T> implements Comparable<Pair<T>> {
         h *= 1000003;
         h ^= this._2.hashCode();
         return h;
-    }
-
-    @Override
-    public int compareTo(Pair<T> o) {
-        return 0;
     }
 }

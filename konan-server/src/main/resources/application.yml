@@ -1,7 +1,4 @@
-spring:
-  application:
-    name: konan
 config:
   name: konan
 server:
-  servlet-path: /api/*
+  port: 9411

@@ -14,7 +14,7 @@ public interface AsyncSpanStore {
      * @param span
      * @return
      */
-    ListenableFuture<Void> submit(Spans span);
+    ListenableFuture<Void> collect(Spans span);
 
     /**
      * @param request

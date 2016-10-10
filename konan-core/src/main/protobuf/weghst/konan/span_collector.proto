@@ -19,7 +19,7 @@ message Span {
     int64 timestamp = 5;
     int64 duration = 6;
     repeated Annotation annotations = 7;
-    repeated Remark remarks = 8;
+    repeated BinaryAnnotation binaryAnnotations = 8;
 }
 
 message Annotation {
@@ -28,10 +28,21 @@ message Annotation {
     Endpoint endpoint = 3;
 }
 
-message Remark {
+message BinaryAnnotation {
+    enum Type {
+        BOOL = 0;
+        BYTES = 1;
+        I16 = 2;
+        I32 = 3;
+        I64 = 4;
+        DOUBLE = 5;
+        STRING = 6;
+    }
+
     string key = 1;
-    string value = 2;
-    Endpoint endpoint = 3;
+    bytes value = 2;
+    Type type = 3;
+    Endpoint endpoint = 4;
 }
 
 message Endpoint {
@@ -57,9 +68,9 @@ message Endpoint {
 // }
 
 service SpanCollector {
-    rpc submit(Span) returns(google.protobuf.Empty) {
+    rpc collect(Span) returns(google.protobuf.Empty) {
     }
 
-    rpc submitBatch(Spans) returns(google.protobuf.Empty) {
+    rpc collectBatch(Spans) returns(google.protobuf.Empty) {
     }
 }
