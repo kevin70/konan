@@ -1,4 +1,6 @@
 spring:
+  application:
+    name: konan
   cloud:
     consul:
       config:
