@@ -1,6 +1,8 @@
 package com.weghst.konan.server.resource
 
 import com.weghst.konan.Configs
+import io.grpc.ManagedChannelBuilder
+import io.grpc.internal.DnsNameResolverProvider
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.cloud.client.discovery.DiscoveryClient
 import org.springframework.cloud.client.loadbalancer.LoadBalancerClient
@@ -21,6 +23,13 @@ class TestResource @Autowired()(configs: Configs, discoveryClient: DiscoveryClie
 
   @RequestMapping
   def index() {
+
+    val builder = ManagedChannelBuilder.forTarget("dns://")
+    builder.nameResolverFactory(new DnsNameResolverProvider)
+
+    val managedChannel = builder.build()
+
+
     println(restTemplate.getForEntity("http://konan/configprops", classOf[String]))
 
     println(configs.name)

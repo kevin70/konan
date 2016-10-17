@@ -3,6 +3,7 @@ syntax = "proto3";
 package weghst.konan;
 
 import "google/protobuf/empty.proto";
+import "google/api/annotations.proto";
 
 option java_package = "com.weghst.konan.span";
 option java_multiple_files = true;
@@ -72,5 +73,9 @@ service SpanCollector {
     }
 
     rpc collectBatch(Spans) returns(google.protobuf.Empty) {
+    }
+
+    rpc testApi(google.protobuf.Empty) returns(google.protobuf.Empty) {
+        option (google.api.http).get = "/v1/health";
     }
 }

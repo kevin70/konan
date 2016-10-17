@@ -6,4 +6,6 @@ spring:
       config:
         format: yaml
         watch:
-          delay: 10000
+          delay: 30000
+      discovery:
+        health-check-interval: 60s

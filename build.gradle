@@ -24,6 +24,7 @@ allprojects {
     apply plugin: 'com.google.protobuf'
 
     sourceCompatibility = 1.8
+    compileJava.options.encoding = 'UTF-8'
 
     repositories {
         mavenCentral()
