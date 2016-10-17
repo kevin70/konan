@@ -3,12 +3,16 @@ project(':konan-ui') {
     apply plugin: 'com.moowork.node'
 
     task cnpmInstall(type: NpmTask) {
-        args = ['install', '--registry=https://registry.npm.taobao.org']
+        args = ['install', '--registry=https://registry.cnpmjs.org']
     }
 
     task buildUI(type: NpmTask) {
         args = ['run', 'build']
     }
+
+//    task buildUI(type: Exec) {
+//        commandLine 'npm', 'run', 'build'
+//    }
     jar.dependsOn buildUI
 
 }
