@@ -1,6 +1,9 @@
 buildscript {
     repositories {
-        mavenCentral()
+        mavenLocal()
+        maven {
+            url 'http://maven.aliyun.com/nexus/content/groups/public/'
+        }
         maven {
             url 'https://plugins.gradle.org/m2/'
         }
@@ -19,7 +22,6 @@ allprojects {
     version '1.0-SNAPSHOT'
 
     apply plugin: 'java'
-    apply plugin: 'scala'
     apply plugin: 'idea'
     apply plugin: 'com.google.protobuf'
 
@@ -31,6 +33,6 @@ allprojects {
     }
 
     dependencies {
-        compile 'org.scala-lang:scala-library:2.11.8'
+        compileOnly 'org.projectlombok:lombok:1.16.10'
     }
 }

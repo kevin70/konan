@@ -46,20 +46,20 @@ public class GrpcServer {
         server.start();
 
         //
-//        NewService newService = new NewService();
-//        newService.setName("konan-grpc");
-//        newService.setAddress("localhost");
-//        newService.setPort(port);
-//        newService.setId("konan-grpc");
-//
-//        NewService.Check check = new NewService.Check();
-//        check.setTimeout("5s");
-//        check.setInterval("10s");
-//        check.setScript("consul-health-checks grpc --address localhost:50051 --service konan");
-//        newService.setCheck(check);
-//
-//        Response<Void> resp = consulClient.agentServiceRegister(newService);
-//        System.out.println(resp);
+        NewService newService = new NewService();
+        newService.setName("konan-grpc");
+        newService.setAddress("localhost");
+        newService.setPort(port);
+        newService.setId("konan-grpc");
+
+        NewService.Check check = new NewService.Check();
+        check.setTimeout("5s");
+        check.setInterval("10s");
+        check.setScript("consul-health-checks grpc --address 192.168.1.13:50051 --service konan");
+        newService.setCheck(check);
+
+        Response<Void> resp = consulClient.agentServiceRegister(newService);
+        System.out.println(resp);
         consulClient.agentServiceDeregister("konan-grpc");
     }
 

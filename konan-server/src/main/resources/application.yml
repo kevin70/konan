@@ -2,3 +2,7 @@ config:
   name: konan
 server:
   port: 9411
+#  ssl:
+#    protocol: TLSv1.2
+#    key-store: classpath:konan.jks
+#    key-store-password: secret
