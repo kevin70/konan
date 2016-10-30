@@ -1,7 +1,7 @@
 package com.weghst.konan.storage;
 
 /**
- * @author Kevin Zou (yong.zou@pilibaba.com)
+ * @author Kevin Zou (kevinz@weghst.com)
  */
 public class QueryRequest {
 }

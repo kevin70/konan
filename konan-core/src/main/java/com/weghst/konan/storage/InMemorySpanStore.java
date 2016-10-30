@@ -13,7 +13,7 @@ import com.weghst.konan.span.Span;
 import com.weghst.konan.span.Spans;
 
 /**
- * @author Kevin Zou (yong.zou@pilibaba.com)
+ * @author Kevin Zou (kevinz@weghst.com)
  */
 public class InMemorySpanStore implements SpanStore {
 

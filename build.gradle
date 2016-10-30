@@ -1,6 +1,9 @@
 buildscript {
     repositories {
-        mavenCentral()
+        mavenLocal()
+        maven {
+            url 'http://maven.aliyun.com/nexus/content/groups/public/'
+        }
         maven {
             url 'https://plugins.gradle.org/m2/'
         }
@@ -8,7 +11,6 @@ buildscript {
 
     dependencies {
         classpath 'com.google.protobuf:protobuf-gradle-plugin:0.8.0'
-        classpath 'org.springframework.boot:spring-boot-gradle-plugin:1.4.0.RELEASE'
         classpath 'com.moowork.gradle:gradle-node-plugin:0.13'
     }
 }
@@ -19,23 +21,20 @@ allprojects {
     version '1.0-SNAPSHOT'
 
     apply plugin: 'java'
-    apply plugin: 'scala'
     apply plugin: 'idea'
     apply plugin: 'com.google.protobuf'
 
     sourceCompatibility = 1.8
+    compileJava.options.encoding = 'UTF-8'
 
     repositories {
-        mavenCentral()
-    }
-
-    idea {
-        module {
-            sourceDirs += file("src/main/scala");
+        mavenLocal()
+        maven {
+            url 'http://maven.aliyun.com/nexus/content/groups/public/'
         }
     }
 
     dependencies {
-        compile 'org.scala-lang:scala-library:2.11.8'
+        compileOnly 'org.projectlombok:lombok:1.16.10'
     }
 }

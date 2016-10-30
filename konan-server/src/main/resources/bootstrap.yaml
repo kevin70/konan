@@ -3,7 +3,10 @@ spring:
     name: konan
   cloud:
     consul:
+      # host: 192.168.1.120
       config:
         format: yaml
         watch:
-          delay: 10000
+          delay: 30000
+      discovery:
+        health-check-interval: 60s

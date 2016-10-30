@@ -1,18 +1,14 @@
 project(':konan-server') {
 
     apply plugin: 'application'
-    apply plugin: 'spring-boot'
 
+    // -Xbootclasspath/p:apln-boot.jar
     mainClassName = 'com.weghst.konan.server.KonanServerApplication'
 
     dependencies {
         compile project(':konan-core')
         compile project(':konan-ui')
 
-        compile 'org.springframework.retry:spring-retry:1.1.4.RELEASE'
-        compile 'org.springframework.boot:spring-boot-starter-web:1.4.1.RELEASE'
-        compile 'org.springframework.boot:spring-boot-starter-actuator:1.4.1.RELEASE'
-
-        compile 'com.hubspot.jackson:jackson-datatype-protobuf:0.9.3'
+        compile 'org.springframework.boot:spring-boot-starter-undertow:1.4.1.RELEASE'
     }
 }

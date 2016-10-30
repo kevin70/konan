@@ -10,7 +10,7 @@ import com.weghst.konan.span.Spans;
 import io.grpc.stub.StreamObserver;
 
 /**
- * @author Kevin Zou (yong.zou@pilibaba.com)
+ * @author Kevin Zou (kevinz@weghst.com)
  */
 @Component
 public class SpanCollectorImpl extends SpanCollectorGrpc.SpanCollectorImplBase {

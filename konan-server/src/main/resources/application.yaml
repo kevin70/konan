@@ -1,0 +1,7 @@
+server:
+  port: 9411
+  servlet-path: /api/v1/*
+#  ssl:
+#    protocol: TLSv1.2
+#    key-store: classpath:konan.jks
+#    key-store-password: secret

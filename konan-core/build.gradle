@@ -3,16 +3,14 @@ project(':konan-core') {
     sourceSets {
         main {
             proto {
-                srcDir 'src/main/protobuf'
-            }
-            resources {
-                srcDir 'src/main/protobuf'
+                srcDir 'src/main/proto'
+                include '**/*.proto'
             }
         }
     }
 
     protobuf {
-        generatedFilesBaseDir = 'generated'
+        generatedFilesBaseDir = "$projectDir/generated"
         protoc {
             // The artifact spec for the Protobuf Compiler
             artifact = 'com.google.protobuf:protoc:3.0.0'
@@ -44,36 +42,16 @@ project(':konan-core') {
     }
 
     dependencies {
-//        compile('org.springframework.boot:spring-boot-starter:1.4.0.RELEASE') {
-//            exclude group: 'commons-logging', module: 'commons-logging'
-//        }
-//        compile 'org.springframework.cloud:spring-cloud-context:1.1.1.RELEASE'
-        compile 'io.grpc:grpc-protobuf:1.0.1'
-        compile 'io.grpc:grpc-stub:1.0.1'
-         compile 'io.grpc:grpc-grpclb:1.0.1'
-        compile 'io.grpc:grpc-services:1.0.1'
-        compile 'io.grpc:grpc-context:1.0.1'
-        compile('io.grpc:grpc-netty:1.0.1') {
-            exclude group: 'io.netty', module: 'netty-codec-http'
-        }
         compile 'io.grpc:grpc-all:1.0.1'
-        // compile 'com.fasterxml.jackson.core:jackson-databind:2.8.2'
+        compile 'io.grpc:grpc-grpclb:1.0.1'
+        compile 'io.grpc:grpc-services:1.0.1'
 
-        compileOnly 'org.projectlombok:lombok:1.16.10'
-//        compile 'org.springframework.cloud:spring-cloud-commons:1.1.0.RELEASE'
-//        compile 'org.springframework.cloud:spring-cloud-consul-discovery:1.1.0.RELEASE'
-//        compile 'org.springframework.cloud:spring-cloud-consul-binder:1.1.0.RELEASE'
-//        compile 'org.springframework.cloud:spring-cloud-consul-config:1.1.0.RELEASE'
-//        compile 'com.ecwid.consul:consul-api:1.2.0'
-
-        compile 'org.springframework.cloud:spring-cloud-starter-consul-all:1.1.0.RELEASE'
-        //compile 'org.springframework.cloud:spring-cloud-starter-feign:1.2.0.RELEASE'
-
-        //compile 'org.springframework.cloud:spring-cloud-config-server:1.2.0.RELEASE'
-
-        //compile 'org.springframework.cloud:spring-cloud-netflix-core:1.2.0.RELEASE'
-        //compile 'com.netflix.ribbon:ribbon:2.2.0'
-        //compile 'com.netflix.ribbon:ribbon-core:2.2.0'
+        compile('org.springframework.cloud:spring-cloud-starter-consul-all:1.1.0.RELEASE') {
+            exclude group: 'org.springframework.boot', module: 'spring-boot-starter-tomcat'
+        }
+        compile 'org.springframework.boot:spring-boot-starter-actuator:1.4.1.RELEASE'
+        compile 'org.springframework.retry:spring-retry:1.1.4.RELEASE'
+        // compile 'org.springframework:spring-jdbc:4.3.3.RELEASE'
     }
 
 }
