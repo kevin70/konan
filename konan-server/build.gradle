@@ -1,14 +1,17 @@
 project(':konan-server') {
 
     apply plugin: 'application'
+    mainClassName = "com.weghst.konan.server.KonanServerApplication"
 
     // -Xbootclasspath/p:apln-boot.jar
-    mainClassName = 'com.weghst.konan.server.KonanServerApplication'
-
+    // http://maven.aliyun.com/nexus/content/groups/public/org/mortbay/jetty/alpn/alpn-boot/8.1.9.v20160720/alpn-boot-8.1.9.v20160720.jar
     dependencies {
         compile project(':konan-core')
         compile project(':konan-ui')
-
+        compile('org.springframework.boot:spring-boot-starter-web:1.4.1.RELEASE') {
+            exclude group: 'org.springframework.boot', module: 'spring-boot-starter-tomcat'
+        }
         compile 'org.springframework.boot:spring-boot-starter-undertow:1.4.1.RELEASE'
+        compile 'org.springframework.boot:spring-boot-starter-actuator:1.4.1.RELEASE'
     }
 }

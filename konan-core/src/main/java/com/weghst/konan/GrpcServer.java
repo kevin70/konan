@@ -10,8 +10,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import com.ecwid.consul.v1.ConsulClient;
-import com.ecwid.consul.v1.Response;
-import com.ecwid.consul.v1.agent.model.NewService;
 import com.weghst.konan.internal.SpanCollectorImpl;
 
 import io.grpc.Server;
@@ -46,21 +44,21 @@ public class GrpcServer {
         server.start();
 
         //
-        NewService newService = new NewService();
-        newService.setName("konan-grpc");
-        newService.setAddress("localhost");
-        newService.setPort(port);
-        newService.setId("konan-grpc");
-
-        NewService.Check check = new NewService.Check();
-        check.setTimeout("5s");
-        check.setInterval("10s");
-        check.setScript("consul-health-checks grpc --address 192.168.1.13:50051 --service konan");
-        newService.setCheck(check);
-
-        Response<Void> resp = consulClient.agentServiceRegister(newService);
-        System.out.println(resp);
-        consulClient.agentServiceDeregister("konan-grpc");
+//        NewService newService = new NewService();
+//        newService.setName("konan-grpc");
+//        newService.setAddress("localhost");
+//        newService.setPort(port);
+//        newService.setId("konan-grpc");
+//
+//        NewService.Check check = new NewService.Check();
+//        check.setTimeout("5s");
+//        check.setInterval("10s");
+//        check.setScript("consul-health-checks grpc --address 192.168.1.13:50051 --service konan");
+//        newService.setCheck(check);
+//
+//        Response<Void> resp = consulClient.agentServiceRegister(newService);
+//        System.out.println(resp);
+//        consulClient.agentServiceDeregister("konan-grpc");
     }
 
     @PreDestroy
