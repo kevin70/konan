@@ -1,0 +1,10 @@
+config:
+  name: konan
+server:
+  port: 9411
+#  servlet-path: /api/v1/*
+  ssl:
+    protocol: TLSv1.2
+    key-password: weghststartssl00020161102
+    key-store: classpath:server.jks
+    key-store-password: weghstkonan20161103
