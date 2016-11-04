@@ -18,7 +18,7 @@ import org.springframework.web.context.request.async.DeferredResult;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**
- * @author Kevin Zou (yong.zou@pilibaba.com)
+ * @author Kevin Zou (kevinz@weghst.com)
  */
 @Controller
 @RequestMapping("/spans")

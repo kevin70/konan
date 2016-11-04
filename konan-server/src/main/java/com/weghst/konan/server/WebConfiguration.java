@@ -17,7 +17,7 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 /**
- * @author Kevin Zou (yong.zou@pilibaba.com)
+ * @author Kevin Zou (kevinz@weghst.com)
  */
 @Configuration
 @RestController

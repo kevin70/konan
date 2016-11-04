@@ -8,13 +8,10 @@ project(':konan-server') {
     dependencies {
         compile project(':konan-core')
         compile project(':konan-ui')
-
         compile('org.springframework.boot:spring-boot-starter-web:1.4.1.RELEASE') {
             exclude group: 'org.springframework.boot', module: 'spring-boot-starter-tomcat'
         }
-         compile 'org.springframework.boot:spring-boot-starter-undertow:1.4.1.RELEASE'
-         compile 'org.springframework.boot:spring-boot-starter-actuator:1.4.1.RELEASE'
-
-//        compile 'com.hubspot.jackson:jackson-datatype-protobuf:0.9.3'
+        compile 'org.springframework.boot:spring-boot-starter-undertow:1.4.1.RELEASE'
+        compile 'org.springframework.boot:spring-boot-starter-actuator:1.4.1.RELEASE'
     }
 }

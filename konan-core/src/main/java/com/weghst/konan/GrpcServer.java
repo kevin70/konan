@@ -18,7 +18,7 @@ import io.grpc.health.v1.HealthCheckResponse;
 import io.grpc.services.HealthStatusManager;
 
 /**
- * @author Kevin Zou (yong.zou@pilibaba.com)
+ * @author Kevin Zou (kevinz@weghst.com)
  */
 @Component
 public class GrpcServer {

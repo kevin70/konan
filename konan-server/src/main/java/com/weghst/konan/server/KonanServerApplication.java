@@ -10,7 +10,7 @@ import org.springframework.context.annotation.ComponentScan;
 import io.undertow.UndertowOptions;
 
 /**
- * @author Kevin Zou (yong.zou@pilibaba.com)
+ * @author Kevin Zou (kevinz@weghst.com)
  */
 @SpringBootApplication
 @EnableAutoConfiguration

@@ -4,6 +4,7 @@ project(':konan-core') {
         main {
             proto {
                 srcDir 'src/main/proto'
+                include '**/*.proto'
             }
         }
     }

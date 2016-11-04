@@ -1,5 +1,3 @@
-config:
-  name: konan
 server:
   port: 9411
   ssl:
