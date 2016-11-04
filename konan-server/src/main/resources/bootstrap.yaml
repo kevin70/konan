@@ -3,7 +3,7 @@ spring:
     name: konan
   cloud:
     consul:
-      # host: 192.168.1.120
+#      host: 192.168.1.120
       config:
         format: yaml
         watch:

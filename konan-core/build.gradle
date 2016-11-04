@@ -53,6 +53,8 @@ project(':konan-core') {
             exclude group: 'org.springframework.boot', module: 'spring-boot-starter-web'
         }
         compile 'org.springframework.retry:spring-retry:1.1.4.RELEASE'
+//        compile 'org.springframework.data:spring-data-redis:1.7.5.RELEASE'
+//        compile 'org.springframework.data:spring-data-elasticsearch:2.0.4.RELEASE'
     }
 
 }

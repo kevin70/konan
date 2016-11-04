@@ -13,5 +13,4 @@ import lombok.Data;
 @ConfigurationProperties("konan")
 public class KonanProperties {
 
-
 }

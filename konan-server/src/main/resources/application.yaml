@@ -2,9 +2,15 @@ config:
   name: konan
 server:
   port: 9411
-#  servlet-path: /api/v1/*
   ssl:
     protocol: TLSv1.2
     key-password: weghststartssl00020161102
     key-store: classpath:server.jks
     key-store-password: weghstkonan20161103
+spring:
+  jackson:
+    property-naming-strategy: LOWER_CASE
+    default-property-inclusion: non_default
+    date-format: com.fasterxml.jackson.databind.util.ISO8601DateFormat
+    deserialization:
+      FAIL_ON_UNKNOWN_PROPERTIES: false
